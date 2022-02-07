@@ -32,5 +32,6 @@ urlpatterns = [
     path('music_index', views.music_view),
     path('sport_index', views.sport_view),
     path('test/url',views.test_url),
-    path('test_url_result/<int:age>', views.test_url_result , name ='tr')
+    path('test_url_result/<int:age>', views.test_url_result , name ='tr'),
+    path('test_static', views.test_static),
 ]

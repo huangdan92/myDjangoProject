@@ -86,3 +86,6 @@ def test_url_result(request, age):
     url = reverse('base_index')
     return HttpResponseRedirect(url)
     # return HttpResponse('ok')
+
+def test_static(request):
+    return render(request,'test_static.html')
