@@ -14,24 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.urls import re_path
+from django.urls import path, re_path, include
 from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('page/<int:pg>',views.pagen_view),
-    re_path(r'^(?P<x>\d{1,2})/(?P<op>\w+)/(?P<y>\d{1,2})',views.cal2_view),
+    path('page/<int:pg>', views.pagen_view),
+    re_path(r'^(?P<x>\d{1,2})/(?P<op>\w+)/(?P<y>\d{1,2})', views.cal2_view),
     path('test_get_post', views.test_get_post),
     # path('test_get_post/', views.test_get_post),
     path('test_html', views.test_html),
     path('test_if_for', views.test_if_for),
     path('mycal', views.test_mycal),
-    path('base_index', views.base_view , name ='base_index'),
+    path('base_index', views.base_view, name='base_index'),
     path('music_index', views.music_view),
     path('sport_index', views.sport_view),
-    path('test/url',views.test_url),
-    path('test_url_result/<int:age>', views.test_url_result , name ='tr'),
+    path('test/url', views.test_url),
+    path('test_url_result/<int:age>', views.test_url_result, name='tr'),
     path('test_static', views.test_static),
+
+    # http://127.0.0.1:8000/music/index
+    path('music/', include('music.urls')),
+    path('news/', include('news.urls'))
 ]
