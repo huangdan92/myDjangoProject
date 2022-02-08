@@ -10,6 +10,9 @@ class Book(models.Model):
     class Meta:
         db_table = "book"
 
+    def __str__(self):
+        return '%s_%s_%s_%s' % (self.title, self.pub, self.price, self.market_price)
+
 
 class Author(models.Model):
     name = models.CharField("姓名", max_length=11)
