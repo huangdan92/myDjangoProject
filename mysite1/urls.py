@@ -36,5 +36,6 @@ urlpatterns = [
 
     # http://127.0.0.1:8000/music/index
     path('music/', include('music.urls')),
-    path('news/', include('news.urls'))
+    path('news/', include('news.urls')),
+    path('bookstore/', include('bookstore.urls'))
 ]
