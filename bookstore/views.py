@@ -18,7 +18,7 @@ def update_book(requst, book_id):
         return HttpResponse('--The book is not existed')
 
     if requst.method == 'GET':
-        return render(requst, 'bookstore/update_book', locals())
+        return render(requst, 'bookstore/update_book.html', locals())
 
     elif requst.method == 'POST':
         pass
