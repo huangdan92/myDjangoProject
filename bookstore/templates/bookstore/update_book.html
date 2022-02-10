@@ -15,15 +15,15 @@
         pub <input type="text" value="{{ book.pub }}" disabled="disabled">
     </p>
     <p>
-        price <input type="text" value="{{ book.price }}">
+        price <input type="text" name="price" value="{{ book.price }}">
     </p>
     <p>
-        market_price <input type="text" value="{{ book.market_price }}">
+        market_price <input type="text" name="market_price" value="{{ book.market_price }}">
     </p>
     <p>
         <input type="submit" value="更新">
     </p>
-    
+
 </form>
 </body>
 </html>

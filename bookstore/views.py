@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.http import HttpResponseRedirect
 from .models import Book
 
 
@@ -10,15 +10,23 @@ def all_book(request):
     return render(request, 'bookstore/all_book.html', locals())
 
 
-def update_book(requst, book_id):
+def update_book(request, book_id):
     try:
         book = Book.objects.get(id=book_id)
     except Exception as e:
         print('--update book error is %s' % (e))
         return HttpResponse('--The book is not existed')
 
-    if requst.method == 'GET':
-        return render(requst, 'bookstore/update_book.html', locals())
+    if request.method == 'GET':
+        return render(request, 'bookstore/update_book.html', locals())
 
-    elif requst.method == 'POST':
-        pass
+    elif request.method == 'POST':
+        price = request.POST['price']
+        market_price = request.POST['market_price']
+
+        # 改
+        book.price = price
+        book.market_price = market_price
+        # 保存
+        book.save()
+        return HttpResponseRedirect('/bookstore/all_book')
