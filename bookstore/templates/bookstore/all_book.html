@@ -19,7 +19,8 @@
     {% for book in all_book %}
         <tr>
             <td> {{ book.id }} </td>
-            <td> {{ book.title }} </td>
+            {% load filters %}
+            <td> {{ book.title|mm }} </td>
             <td> {{ book.pub }} </td>
             <td> {{ book.price }} </td>
             <td> {{ book.market_price }} </td>
