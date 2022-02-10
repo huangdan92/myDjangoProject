@@ -20,7 +20,7 @@
         <tr>
             <td> {{ book.id }} </td>
             {% load filters %}
-            <td> {{ book.title|cut:"0" }} </td>
+            <td> {{ book.title|kk:"Python" }} </td>
             <td> {{ book.pub }} </td>
             <td> {{ book.price }} </td>
             <td> {{ book.market_price }} </td>

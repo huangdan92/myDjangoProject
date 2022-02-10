@@ -12,5 +12,5 @@ def mm(value):
 
 
 @register.filter
-def cut(value, arg):
+def kk(value, arg):
     return value.replace(arg, '')
