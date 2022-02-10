@@ -10,5 +10,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('all_book', views.all_book),
-    path('update_book/<int:book_id>', views.update_book)
+    path('update_book/<int:book_id>', views.update_book),
+    path('delete_book', views.delete_book)
+
 ]

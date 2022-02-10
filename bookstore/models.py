@@ -6,6 +6,7 @@ class Book(models.Model):
     pub = models.CharField("出版社", max_length=100, default='')
     price = models.DecimalField("价格", max_digits=7, decimal_places=2, default=0.0)
     market_price = models.DecimalField("零售价", max_digits=7, decimal_places=2, default=0.0)
+    is_active = models.BooleanField("是否活跃", default=True)
 
     class Meta:
         db_table = "book"
