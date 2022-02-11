@@ -25,3 +25,11 @@ class Author(models.Model):
     class Meta:
         db_table = "author"
 
+
+class Husband(models.Model):
+    name = models.CharField('姓名', max_length=11)
+
+
+class Wife(models.Model):
+    name = models.CharField('姓名', max_length=11)
+    author = models.OneToOneField(Husband, on_delete=models.CASCADE)
