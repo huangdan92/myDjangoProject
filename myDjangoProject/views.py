@@ -108,3 +108,18 @@ def delete_cookies(request):
     response = HttpResponse('delete cookies is ok')
     response.delete_cookie('uuname')
     return response
+
+
+def set_session(request):
+    request.session['uname'] = 'xii'
+    return HttpResponse('set session is ok')
+
+
+def get_session(request):
+    value = request.session['uname']
+    return HttpResponse('session value is %s' % (value))
+
+
+def delete_session(request):
+    del request.session['uname']
+    return HttpResponse('delete session is ok')

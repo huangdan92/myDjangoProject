@@ -40,5 +40,8 @@ urlpatterns = [
     path('bookstore/', include('bookstore.urls')),
     path('set_cookies', views.set_cookies),
     path('get_cookies', views.get_cookies),
-    path('delete_cookies', views.delete_cookies)
+    path('delete_cookies', views.delete_cookies),
+    path('set_session', views.set_session),
+    path('get_session', views.get_session),
+    path('delete_session', views.delete_session)
 ]
