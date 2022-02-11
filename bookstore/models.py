@@ -33,3 +33,21 @@ class Husband(models.Model):
 class Wife(models.Model):
     name = models.CharField('姓名', max_length=11)
     author = models.OneToOneField(Husband, on_delete=models.CASCADE)
+
+
+class Publisher(models.Model):
+    name = models.CharField('出版社名称', max_length=50)
+
+
+class PublisherBook(models.Model):
+    title = models.CharField('书名', max_length=11)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
+
+
+class Author1(models.Model):
+    name = models.CharField('姓名', max_length=11)
+
+
+class Book1(models.Model):
+    title = models.CharField('书名', max_length=11)
+    authors = models.ManyToManyField(Author1)
