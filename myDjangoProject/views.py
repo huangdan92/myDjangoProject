@@ -10,14 +10,15 @@ POST_FORM = '''
 </form>
 '''
 
-def pagen_view(requst,pg):
-    html = '这是编号为%s的网页'%(pg)
+
+def pagen_view(requst, pg):
+    html = '这是编号为%s的网页' % (pg)
     return HttpResponse(html)
 
-def cal2_view(request,x,op,y):
-    html = 'x:%s op:%s y:%s' %(x,op,y)
-    return HttpResponse(html)
 
+def cal2_view(request, x, op, y):
+    html = 'x:%s op:%s y:%s' % (x, op, y)
+    return HttpResponse(html)
 
 
 def test_get_post(requst):
@@ -87,5 +88,23 @@ def test_url_result(request, age):
     return HttpResponseRedirect(url)
     # return HttpResponse('ok')
 
+
 def test_static(request):
-    return render(request,'test_static.html')
+    return render(request, 'test_static.html')
+
+
+def set_cookies(request):
+    resp = HttpResponse('set cookies is ok')
+    resp.set_cookie('uuname', 'chen', 500)
+    return resp
+
+
+def get_cookies(request):
+    value = request.COOKIES.get('uuname')
+    return HttpResponse('value is %s' % (value))
+
+
+def delete_cookies(request):
+    response = HttpResponse('delete cookies is ok')
+    response.delete_cookie('uuname')
+    return response
