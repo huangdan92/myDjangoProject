@@ -11,6 +11,8 @@ urlpatterns = [
 
     path('all_book', views.all_book),
     path('update_book/<int:book_id>', views.update_book),
-    path('delete_book', views.delete_book)
+    path('delete_book', views.delete_book),
+    path('test_cache', views.test_cache),
+    path('test_mw',views.test_mw)
 
 ]

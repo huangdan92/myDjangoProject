@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import Book
+import time
+from django.views.decorators.cache import cache_page
 
 
 # Create your views here.
@@ -44,3 +46,16 @@ def delete_book(request):
     book.is_active = False
     book.save()
     return HttpResponseRedirect('/bookstore/all_book')
+
+
+@cache_page(10)
+def test_cache(request):
+    t = time.time()
+    return HttpResponse('t is %s' % (t))
+
+
+def test_mw(request):
+    print('mw do')
+    return HttpResponse('test-mw')
+
+
